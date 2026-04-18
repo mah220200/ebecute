@@ -1,0 +1,284 @@
+img {
+ transform: translateX(100%);
+            position: fixed;
+            top: clamp(20px, 5vh, 50px);
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(1.8rem, 8vw, 4rem);
+            font-weight: 800;   
+            text-align: center;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+}
+html,body {height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+         }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            font-family: 'Arial', sans-serif;
+            cursor: none;
+            position: relative;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            position: relative;
+        }        #birthday-text {
+            position: fixed;
+            top: clamp(20px, 5vh, 50px);
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(1.8rem, 8vw, 4rem);
+            font-weight: 800;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+            z-index: 1000;
+            text-align: center;
+            animation: glow 2s ease-in-out infinite alternate;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+
+        @keyframes glow {
+            from { 
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.6), 0 0 20px #ff6b6b;
+            }
+            to { 
+                text-shadow: 2px 2px 8px rgba(0,0,0,0.6), 0 0 40px #ff1493, 0 0 60px #ff69b4;
+            }
+        }
+
+        /* ✅ ⭐ ÁNH CHÍNH GIỮA TUYỆT ĐỐI ⭐ */
+
+
+        /* ✅ LUÔN GIỮA TUYỆT ĐỐI - KHÔNG CẢNH BÁO */
+        #main-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: inherit;
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        /* Chữ Happy Birthday ở giữa đầu trang */
+        #birthday-text {
+            position: fixed;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.6);
+            z-index: 1000;
+            text-align: center;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { 
+                text-shadow: 4px 4px 8px rgba(0,0,0,0.6), 0 0 20px #ff6b6b;
+            }
+            to { 
+                text-shadow: 4px 4px 8px rgba(0,0,0,0.6), 0 0 40px #ff1493, 0 0 60px #ff69b4;
+            }
+        }
+
+        /* Ảnh chính ở giữa */
+        #main-image {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: clamp(250px, 40vw, 400px);
+            height: 300px;
+            background: 
+                linear-gradient(145deg, #ffdbac, #ffc893),
+                url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjQwIiB5PSIyNDAiIHdpZHRoPSIzMjAiIGhlaWdodD0iNjAiIHJ4PSI1IiBmaWxsPSIjZmZkNDY0IiBzdHJva2U9IiNmZmI5NTMiIHN0cm9rZS13aWR0aD0iMyIvPgo8cmVjdCB4PSI2MCIgeT0iMTkwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjUwIiByeD0iMTAiIGZpbGw9IiNmZjhhNmIiIHN0cm9rZT0iI2ZmNzU0ZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxyZWN0IHg9IjgwIiB5PSIxNDAiIHdpZHRoPSIyNDAiIGhlaWdodD0iNTAiIHJ4PSIxMiIgZmlsbD0iI2ZmNjVhZiIgc3Ryb2tlPSIjZmY1MThjIiBzdHJva2Utd2lkdGg9IjIiLz4KPHJlY3QgeD0iMTAwIiB5PSIxMDAiIHdpZHRoPSIxODAiIGhlaWdodD0iNDAiIHJ4PSIxMCIgZmlsbD0iI2ZmNDI0OCIgc3Ryb2tlPSIjZmUzZDBkIiBzdHJva2Utd2lkdGg9IjIiLz4KPGNpcmNsZSBjeD0iMjAwIiBjeT0iODAiIHI9IjM1IiBmaWxsPSIjZmZiY2NmIiBzdHJva2U9IiNmZmFiOWIiIHN0cm9rZS13aWR0aD0iMyIvPgo8Y2lyY2xlIGN4PSIxNjAiIGN5PSI1NSIgcj0iMjUiIGZpbGw9IiNmZmIxY2YiIHN0cm9rZT0iI2ZmOTdiYSIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxjaXJjbGUgY3g9IjI0MCIgY3k9IjU1IiByPSIyNSIgZmlsbD0iI2ZmYjFjZiIgc3Ryb2tlPSIjZmY5N2JhIiBzdHJva2Utd2lkdGg9IjIiLz4KPHBhdGggZD0iTTE3NSAxMjAgTDE5NSAxNDAgTDIxNSAxMjAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iMTc1IiBjeT0iMTE1IiByPSI2IiBmaWxsPSIjZmZmIi8+CjxjaXJjbGUgY3g9IjIxNSIgY3k9IjExNSIgcj0iNiIgZmlsbD0iI2ZmZiIvPgo8L3N2Zz4=') center/contain no-repeat;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-radius: 20px;
+            z-index: 500;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-15px); }
+        }
+/* ⭐ LỜI CHÚC DƯỚI ẢNH BÁNH ⭐ */
+        #wishes {
+            position: fixed;
+            top: 65%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+            z-index: 600;
+            max-width: 90%;
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            line-height: 1.6;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 2s ease-out 1s both;
+            user-select: none;
+        }
+
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0; 
+                transform: translate(-50%, 50px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%); 
+            }
+        }
+
+        .wish-line {
+            margin: 8px 0;
+            opacity: 0;
+            animation: slideIn 1s ease-out forwards;
+        }
+
+        .wish-line:nth-child(1) { animation-delay: 1.2s; }
+        .wish-line:nth-child(2) { animation-delay: 1.5s; }
+        .wish-line:nth-child(3) { animation-delay: 1.8s; }
+        .wish-line:nth-child(4) { animation-delay: 2.1s; }
+
+        @keyframes slideIn {
+            0% { 
+                opacity: 0; 
+                transform: translateY(20px); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: heartFloat 3s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes heartFloat {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-50px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Bóng bay trái tim */
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 60px;
+            cursor: pointer;
+            z-index: 300;
+            transition: all 0.2s ease;
+        }
+
+        .balloon:hover {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .balloon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .balloon-string {
+            position: absolute;
+            bottom: -70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 70px;
+            background: linear-gradient(to bottom, transparent, #333);
+            border-radius: 1px;
+        }
+
+        /* Chuột hộp quà */
+        #cursor {
+            position: fixed;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border: 3px solid #fff;
+            border-radius: 8px;
+            box-shadow: 
+                0 5px 15px rgba(255,107,107,0.4),
+                inset 0 2px 4px rgba(255,255,255,0.3);
+            z-index: 2000;
+            pointer-events: none;
+            transition: all 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        #cursor::after {
+            content: '🎁';
+            font-size: 18px;
+        }
+
+        /* Pháo hoa */
+        .firework {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            pointer-events: none;
+            box-shadow: 0 0 8px currentColor;
+        }
+
+        /* Hiệu ứng click ripple */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8), transparent);
+            transform: scale(0);
+            animation: rippleEffect 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes rippleEffect {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.8);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(1.2);
+                opacity: 0;
+            }
+        }

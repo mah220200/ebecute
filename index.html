@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinh nhật Ngọc Kiều a1 15-4 🎉</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="script.js" rel="script">
+
+</head>
+<body>
+    <!-- Chữ Happy Birthday -->
+    <div id="birthday-text">Happy Birthday! </div>
+
+    
+    <!-- Ảnh chính giữa trang -->
+    <div id=""></div>
+        <img src="1.png"></img>
+        <!-- ⭐ LỜI CHÚC DƯỚI ẢNH BÁNH ⭐ -->
+    <div id="wishes">
+        <div class="wish-line">🎉 Chúc bạn một ngày sinh nhật thật vui vẻ! 🎉</div>
+        <div class="wish-line">💝 Luôn hạnh phúc và thành công trong mọi điều!💝</div>
+        <div class="wish-line">🌟 Chúc bạn E iu của bạn là của tôi !🌟</div>
+        <div class="wish-line">🥳 Đỗ NV1 & Best Wishes! 🥳</div>
+    </div>
+
+    <!-- Chuột -->
+    <div id="cursor"></div>
+    
+    <!-- Chuột hộp quà -->
+    <div id="cursor"></div>
+
+    <script>
+        // Tạo bóng bay trái tim
+        function createBalloon() {
+            const balloon = document.createElement('div');
+            balloon.className = 'balloon';
+            balloon.style.left = Math.random() * (window.innerWidth - 60) + 'px';
+            balloon.style.animation = `floatUp ${4 + Math.random() * 3}s linear infinite`;
+            balloon.style.animationDelay = `${Math.random() * 3}s`;
+            
+            // Ảnh bóng bay trái tim SVG
+            balloon.innerHTML = `
+                <svg viewBox="0 0 100 120" class="balloon-img">
+                    <path d="M50 20 C35 5, 20 20, 25 40 C20 60, 30 80, 50 95 C70 80, 80 60, 75 40 C80 20, 65 5, 50 20 Z" 
+                          fill="${['#ff6b6b', '#ff8e8e', '#ff6b9d', '#c44569', '#ff1493'][Math.floor(Math.random()*5)]}" 
+                          stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                    <path d="M50 20 C60 10, 75 20, 70 40 C75 55, 65 70, 50 85 C35 70, 25 55, 30 40 C25 20, 40 10, 50 20 Z" 
+                          fill="${['#ff6b6b', '#ff8e8e', '#ff6b9d', '#c44569', '#ff1493'][Math.floor(Math.random()*5)]}" 
+                          stroke="#fff" stroke-width="2" stroke-linejoin="round"/>
+                    <line x1="50" y1="95" x2="50" y2="115" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <div class="balloon-string"></div>
+            `;
+            
+            balloon.addEventListener('click', explodeBalloon);
+            document.body.appendChild(balloon);
+
+            // Xóa sau animation
+            setTimeout(() => {
+                if (balloon.parentNode) balloon.remove();
+            }, 9000);
+        }
+
+        // Hiệu ứng nổ pháo hoa
+        function explodeBalloon(e) {
+            const balloon = e.currentTarget;
+            const rect = balloon.getBoundingClientRect();
+            const x = rect.left + rect.width / 2 + window.scrollX;
+            const y = rect.top + rect.height / 2 + window.scrollY;
+            
+            createFirework(x, y);
+            balloon.style.transform = 'scale(1.5)';
+            setTimeout(() => balloon.remove(), 200);
+        }
+
+        function createFirework(x, y) {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7', '#a29bfe', '#fdcb6e'];
+            
+            // Tạo 25 hạt pháo hoa
+            for (let i = 0; i < 25; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework firework-particle';
+                particle.style.left = (x - 3) + 'px';
+                particle.style.top = (y - 3) + 'px';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.boxShadow = `0 0 10px ${colors[Math.floor(Math.random() * colors.length)]}`;
+                
+                const angle = (i / 25) * Math.PI * 2;
+                const velocity = 100 + Math.random() * 150;
+                const vx = Math.cos(angle) * velocity;
+                const vy = Math.sin(angle) * velocity;
+                
+                particle.animate([
+                    { 
+                        transform: 'translate(0, 0) scale(1)', 
+                        opacity: 1 
+                    },
+                    { 
+                        transform: `translate(${vx}px, ${vy}px) scale(0)`, 
+                        opacity: 0 
+                    }
+                ], {
+                    duration: 1000 + Math.random() * 500,
+                    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                }).onfinish = () => particle.remove();
+                
+                document.body.appendChild(particle);
+            }
+        }
+
+        // Theo dõi chuột
+        let mouseX = 0, mouseY = 0;
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            const cursor = document.getElementById('cursor');
+            cursor.style.left = (mouseX - 17.5) + 'px';
+            cursor.style.top = (mouseY - 17.5) + 'px';
+
+        });
+
+        // Tạo bóng bay liên tục
+        setInterval(createBalloon, 600);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+
+        // ✅ ẨN DEVTOOLS KHI MỞ
+        (function() {
+            let devtools = {
+                open: false,
+                orientation: null
+            };
+            
+            const threshold = 160;
+            
+            setInterval(() => {
+                if (window.outerHeight - window.innerHeight > threshold || 
+                    window.outerWidth - window.innerWidth > threshold) {
+                    if (!devtools.open) {
+                        devtools.open = true;
+                        alert('Không thể xem mã nguồn! 🎂');
+                        location.reload();
+                    }
+                } else {
+                    devtools.open = false;
+                }
+            }, 500);
+        })();
+        
+        // Tạo bóng bay ban đầu
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => createBalloon(), i * 400);
+        }
+
+        // Responsive text
+        window.addEventListener('resize', () => {
+            const text = document.getElementById('birthday-text');
+            text.style.fontSize = window.innerWidth > 768 ? 'clamp(3rem, 8vw, 6rem)' : 'clamp(2rem, 10vw, 4rem)';
+        });
+    </script>
+</body>
+</html>
